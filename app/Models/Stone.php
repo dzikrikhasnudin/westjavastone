@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Enums\StoneStatus;
 use Illuminate\Support\Str;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -17,12 +18,20 @@ class Stone extends Model
         'name',
         'slug',
         'thumbnail',
-        'about',
+        'description',
         'price',
         'weight',
+        'status',
         'is_popular',
         'category_id',
     ];
+
+    protected function casts(): array
+    {
+        return [
+            'status' => StoneStatus::class,
+        ];
+    }
 
     public function setNameAttribute($value)
     {

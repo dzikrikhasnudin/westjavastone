@@ -15,8 +15,10 @@ return new class extends Migration
             $table->id();
 
             $table->string('name');
-            $table->string('slug');
+            $table->string('slug')->unique();
             $table->string('icon')->nullable();
+
+            $table->softDeletes();
 
             $table->timestamps();
         });

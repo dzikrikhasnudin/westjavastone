@@ -15,12 +15,14 @@ return new class extends Migration
             $table->id();
 
             $table->string('name');
-            $table->string('slug');
+            $table->string('slug')->unique();
             $table->string('thumbnail');
-            $table->text('about');
+            $table->text('description');
             $table->unsignedBigInteger('price');
-            $table->unsignedBigInteger('weight');
-            $table->boolean('is_popular');
+            $table->decimal('weight', 8, 2);
+            $table->string('dimensions')->nullable();
+            $table->boolean('is_popular')->default(false);
+            $table->enum('status', ['available', 'sold', 'reserved'])->default('available');
             $table->foreignId('category_id')->constrained()->cascadeOnDelete();
             $table->softDeletes();
 
