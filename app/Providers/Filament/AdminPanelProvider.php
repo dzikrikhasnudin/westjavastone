@@ -20,10 +20,13 @@ use Illuminate\View\Middleware\ShareErrorsFromSession;
 
 class AdminPanelProvider extends PanelProvider
 {
+    protected static ?int $navigationSort = 3;
+
     public function panel(Panel $panel): Panel
     {
         return $panel
             ->default()
+            ->sidebarCollapsibleOnDesktop()
             ->id('admin')
             ->path('admin')
             ->login()
