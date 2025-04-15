@@ -20,7 +20,6 @@ class ProductTransaction extends Model
         'city',
         'post_code',
         'address',
-        'quantity',
         'sub_total_amount',
         'grand_total_amount',
         'discount_amount',

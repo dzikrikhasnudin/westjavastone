@@ -24,7 +24,7 @@ return new class extends Migration
 
             $table->text('address');
 
-            $table->unsignedBigInteger('quantity');
+            // $table->unsignedBigInteger('quantity');
             $table->unsignedBigInteger('sub_total_amount');
             $table->unsignedBigInteger('grand_total_amount');
             $table->unsignedBigInteger('discount_amount');
