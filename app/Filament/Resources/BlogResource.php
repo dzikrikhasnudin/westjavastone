@@ -9,11 +9,13 @@ use Filament\Forms\Form;
 use App\Enums\PostStatus;
 use Filament\Tables\Table;
 use Filament\Resources\Resource;
+use App\Models\ProductTransaction;
+use Filament\Forms\Components\Grid;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\Textarea;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Forms\Components\TextInput;
-use Filament\Forms\Components\Grid;
+use Filament\Notifications\Notification;
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\RichEditor;
 use Illuminate\Database\Eloquent\Builder;
@@ -34,15 +36,15 @@ class BlogResource extends Resource
         return $form
             ->schema([
                 Grid::make(1)
-                ->schema([
-                    TextInput::make('title')->required(),
-                    Textarea::make('description')->required(),
-                    RichEditor::make('content')->required(),
-                ]),
+                    ->schema([
+                        TextInput::make('title')->required(),
+                        Textarea::make('description')->required(),
+                        RichEditor::make('content')->required(),
+                    ]),
 
                 FileUpload::make('thumbnail')->image(),
                 Select::make('status')
-                ->options(PostStatus::class),
+                    ->options(PostStatus::class),
             ]);
     }
 

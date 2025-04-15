@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Enums\PostStatus;
 use Illuminate\Support\Str;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -18,6 +19,13 @@ class BlogPost extends Model
         'thumbnail',
         'status',
     ];
+
+    protected function casts(): array
+    {
+        return [
+            'status' => PostStatus::class,
+        ];
+    }
 
 
     public function setTitleAttribute($value)
