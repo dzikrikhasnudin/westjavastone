@@ -26,8 +26,8 @@ class FrontService
     public function getFrontPageData()
     {
         $categories = $this->categoryRepository->getAllCategories();
-        $popularShoes = $this->stoneRepository->getPopularStones(4);
-        $newShoes = $this->stoneRepository->getAllNewStones();
+        $popularStones = $this->stoneRepository->getPopularStones(4);
+        $newStones = $this->stoneRepository->getAllNewStones();
 
         return compact('categories', 'popularStones', 'newStones');
     }

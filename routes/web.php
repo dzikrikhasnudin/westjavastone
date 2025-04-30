@@ -3,8 +3,16 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FrontController;
 use App\Http\Controllers\OrderController;
+use App\Http\Controllers\PageController;
 
 Route::get('/', [FrontController::class, 'index'])->name('front.index');
+
+Route::controller(PageController::class)->group(function () {
+    Route::get('/about-us', 'about')->name('page.about');
+    Route::get('/blog', 'blog')->name('page.blog');
+    Route::get('/blog/{slug}', 'blogPost')->name('page.blog_post');
+
+});
 
 Route::get('/browse/{category:slug}', [FrontController::class, 'category'])->name('front.category');
 
