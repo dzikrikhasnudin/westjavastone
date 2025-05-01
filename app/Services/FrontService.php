@@ -18,7 +18,7 @@ class FrontService
         $this->stoneRepository = $stoneRepository;
     }
 
-    public function searchShoes(string $keyword)
+    public function searchStones(string $keyword)
     {
         return $this->stoneRepository->searchByName($keyword);
     }

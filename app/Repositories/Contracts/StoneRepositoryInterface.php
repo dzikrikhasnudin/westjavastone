@@ -8,6 +8,10 @@ interface StoneRepositoryInterface
 
     public function getAllNewStones();
 
+    public function getAvailableStones();
+
+    public function getReservedStones();
+
     public function find($id);
 
     public function getPrice($ticketId);

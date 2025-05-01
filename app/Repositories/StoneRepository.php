@@ -12,6 +12,16 @@ class StoneRepository implements StoneRepositoryInterface
         return Stone::where('is_popular', true)->take($limit)->get();
     }
 
+    public function getAvailableStones()
+    {
+        return Stone::where('status', 'available')->latest()->get();
+    }
+
+    public function getReservedStones()
+    {
+        return Stone::where('status', 'resesrved')->latest()->get();
+    }
+
     public function searchByName(string $keyword)
     {
         return Stone::where('name', 'LIKE', '%' . $keyword . '%')->get();
