@@ -34,9 +34,14 @@ class FrontController extends Controller
         return view('front.index', $data);
     }
 
+    public function product()
+    {
+        $data = $this->frontService->getFrontPageData();
+        return view('product.index', $data);
+    }
     public function details(Stone $stone)
     {
-        return view('front.details', compact('stone'));
+        return view('product.detail', compact('stone'));
     }
 
     public function category(Category $category)

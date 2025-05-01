@@ -14,12 +14,17 @@ Route::controller(PageController::class)->group(function () {
 
 });
 
+Route::get('/search', [FrontController::class, 'search'])->name('front.search');
+
 Route::get('/browse/{category:slug}', [FrontController::class, 'category'])->name('front.category');
 
-Route::get('/details/{shoe:slug}', [FrontController::class, 'details'])->name('front.details');
+Route::get('/product', [FrontController::class, 'product'])->name('product.index');
 
-Route::post('/order/begin/{shoe:slug}', [OrderController::class, 'saveOrder'])->name('front.save_order');
+Route::get('/product/{stone:slug}', [FrontController::class, 'details'])->name('product.details');
 
+Route::post('/order/begin/{stone:slug}', [OrderController::class, 'saveOrder'])->name('front.save_order');
+
+Route::get('/check-booking', [OrderController::class, 'checkBooking'])->name('front.check_booking');
 Route::get('/order/booking', [OrderController::class, 'booking'])->name('front.booking');
 
 Route::get('/order/booking/customer-data', [OrderController::class, 'customerData'])->name('front.customer_data');
