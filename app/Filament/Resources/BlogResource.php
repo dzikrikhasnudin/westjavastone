@@ -39,7 +39,7 @@ class BlogResource extends Resource
                     ->schema([
                         TextInput::make('title')->required(),
                         Textarea::make('description')->required(),
-                        RichEditor::make('content')->required(),
+                        RichEditor::make('content')->required()->fileAttachmentsDirectory('attachments'),
                     ]),
 
                 FileUpload::make('thumbnail')->image(),

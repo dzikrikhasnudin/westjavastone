@@ -1,5 +1,5 @@
 <header>
-    <nav class="bg-sky-800 border-gray-200 px-4 lg:px-6 py-2.5 dark:bg-gray-800">
+    <nav class="bg-sky-800 border-gray-200 px-4 lg:px-6 py-2.5 dark:bg-gray-800 sticky z-10">
         <div class="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl">
             <a href="{{ route('front.index') }}" class="flex items-center">
                 <img src="{{ asset('images/logo.png') }}" class="mr-3 h-6 sm:h-9" alt="Flowbite Logo" />
@@ -43,16 +43,20 @@
                         </x-nav-link>
                     </li>
                     <li>
-                        <x-nav-link href="#" :active="request()->routeIs('front.product')">Product</x-nav-link>
+                        <x-nav-link href="{{ route('product.index') }}" :active="request()->routeIs('front.product')">
+                            Product</x-nav-link>
                     </li>
                     <li>
-                        <x-nav-link href="#" :active="request()->routeIs('front.blog')">Blog</x-nav-link>
+                        <x-nav-link href="{{ route('page.blog') }}" :active="request()->routeIs('front.blog')">Articles
+                        </x-nav-link>
                     </li>
                     <li>
-                        <x-nav-link href="#" :active="request()->routeIs('page.about')">About Us</x-nav-link>
+                        <x-nav-link href="{{ route('page.about') }}" :active="request()->routeIs('page.about')">About Us
+                        </x-nav-link>
                     </li>
                     <li>
-                        <x-nav-link href="#" :active="request()->routeIs('page.contact')">Contact</x-nav-link>
+                        <x-nav-link href="{{ route('page.contact') }}" :active="request()->routeIs('page.contact')">
+                            Contact</x-nav-link>
                     </li>
 
                 </ul>

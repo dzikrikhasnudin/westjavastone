@@ -1,8 +1,6 @@
 <x-app-layout>
     <x-slot:title>Homepage - West Java Stone</x-slot:title>
 
-    @include('partials.top-navigation')
-
     {{-- CTA Section --}}
     <section class="bg-white dark:bg-gray-900">
         <div
@@ -15,7 +13,7 @@
                 <p class="mb-6 font-light text-gray-500 md:text-lg dark:text-gray-400">Browse our collection and
                     experience the natural elegance of Garut’s finest petrified wood.</p>
                 <a href="#"
-                    class="inline-flex items-center text-white bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:focus:ring-primary-900">
+                    class="inline-flex items-center text-white  bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:focus:ring-primary-900">
                     Get started
                     <svg class="ml-2 -mr-1 w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
                         xmlns="http://www.w3.org/2000/svg">
@@ -183,6 +181,4 @@
         </div>
     </section>
 
-
-    @include('partials.footer')
 </x-app-layout>

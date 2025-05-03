@@ -22,9 +22,16 @@
     </script>
 </head>
 
-<body>
+<body class="bg-white dark:bg-gray-900">
+    @include('partials.top-navigation')
+
     {{ $slot }}
+
+
+    @include('partials.footer')
+
     <script src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js"></script>
+
 </body>
 
 </html>

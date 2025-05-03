@@ -12,7 +12,7 @@ class PageController extends Controller
     {
         $pageExists = Page::where('slug', 'about-us')->exists();
 
-        if($pageExists) {
+        if ($pageExists) {
             $page = Page::where('slug', 'about-us')->first();
             return view('page.about', compact('page'));
         } else {
@@ -20,9 +20,16 @@ class PageController extends Controller
         }
     }
 
+    public function contact()
+    {
+        return view('page.contact');
+    }
+
     public function blog()
     {
-        return view('page.blog');
+        $articles = BlogPost::latest()->get();
+
+        return view('page.blog', compact('articles'));
     }
     public function blogPost(BlogPost $post)
     {
