@@ -58,29 +58,17 @@
         <h1 class="text-3xl font-bold mb-8 text-center">Explore Our Stone Categories</h1>
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
             <!-- Category Card -->
+            @foreach ($data['categories']->take as $category)
             <div class="bg-white rounded-2xl  shadow hover:shadow-lg transition p-4">
                 <img src="{{ asset('images/petrified-wood.png') }}" alt="Polished Stones"
                     class="w-full h-48 object-cover rounded-xl mb-4">
-                <h2 class="text-xl font-semibold mb-1">Petrified Woods</h2>
+                <h2 class="text-xl font-semibold mb-1">{{ $category->name }}</h2>
                 <p class="text-sm text-gray-600 mb-3">Smooth-finished pieces perfect for display or luxury interior
                     use.</p>
-                <a href="#" class="text-indigo-600 font-medium hover:underline">View Products →</a>
+                <a href="{{ route('front.category', $category->slug) }}" class="text-indigo-600 font-medium hover:underline">View Products →</a>
             </div>
-            <!-- Repeat for other categories -->
-            <div class="bg-white rounded-2xl shadow hover:shadow-lg transition p-4">
-                <img src="{{ asset('images/slab.webp') }}" alt="Raw Slabs"
-                    class="w-full h-48 object-cover rounded-xl mb-4">
-                <h2 class="text-xl font-semibold mb-1">Raw Slabs</h2>
-                <p class="text-sm text-gray-600 mb-3">Natural, untouched slabs straight from the source.</p>
-                <a href="#" class="text-indigo-600 font-medium hover:underline">View Products →</a>
-            </div>
-            <div class="bg-white rounded-2xl shadow hover:shadow-lg transition p-4">
-                <img src="{{ asset('images/agate.png') }}" alt="Decorative Pieces"
-                    class="w-full h-48 object-cover rounded-xl mb-4">
-                <h2 class="text-xl font-semibold mb-1">Agate</h2>
-                <p class="text-sm text-gray-600 mb-3">Artistic and functional designs from our best stonework.</p>
-                <a href="#" class="text-indigo-600 font-medium hover:underline">View Products →</a>
-            </div>
+            @endforeach
+
         </div>
     </section>
 

@@ -5,6 +5,7 @@ use App\Http\Controllers\FrontController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\PageController;
 use App\Livewire\Blog;
+use App\Livewire\ProductCategories;
 use App\Livewire\ProductIndex;
 
 Route::get('/', [FrontController::class, 'index'])->name('front.index');
@@ -17,9 +18,9 @@ Route::controller(PageController::class)->group(function () {
 
 Route::get('/articles', Blog::class)->name('page.blog');
 
-Route::get('/search', [FrontController::class, 'search'])->name('front.search');
+Route::get('/product/category', [FrontController::class, 'category'])->name('front.category');
 
-Route::get('/browse/{category:slug}', [FrontController::class, 'category'])->name('front.category');
+Route::get('/product/category/{category:slug}', ProductCategories::class)->name('product.category');
 
 Route::get('/product', ProductIndex::class)->name('product.index');
 

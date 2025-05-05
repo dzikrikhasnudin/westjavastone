@@ -31,7 +31,7 @@ class FrontController extends Controller
     public function index()
     {
         $data = $this->frontService->getFrontPageData();
-        return view('front.index', $data);
+        return view('front.index', compact('data'));
     }
 
     public function product()
@@ -44,8 +44,9 @@ class FrontController extends Controller
         return view('product.detail', compact('stone'));
     }
 
-    public function category(Category $category)
+    public function category()
     {
-        return view('front.category', compact('category'));
+        $data = $this->frontService->getFrontPageData();
+        return view('front.all-categories', compact('data'));
     }
 }

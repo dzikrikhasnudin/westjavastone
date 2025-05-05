@@ -2,24 +2,26 @@
 
 namespace App\Livewire;
 
-use App\Models\Category;
 use App\Models\Stone;
 use Livewire\Component;
+use App\Models\Category;
 use Livewire\WithPagination;
 use Livewire\Attributes\Title;
 use Livewire\Attributes\Layout;
 
-class ProductIndex extends Component
+class ProductCategories extends Component
 {
     use WithPagination;
 
     #[Layout('components.app-layout')]
-    #[Title('Products - West Java Stone')]
+    #[Title('Category - West Java Stone')]
 
     public $search = '';
     public $pagination = 12;
     public $categories;
+    public Category $category;
     protected $updatesQueryString = ['search'];
+
 
 
     public function updatedSearch()
@@ -34,11 +36,12 @@ class ProductIndex extends Component
 
     public function render()
     {
+        // dd($this->category->stones);
         // $articles = [];
 
-        return view('product.index', [
+        return view('product.category', [
             'stones' => $this->search == null ?
-                Stone::latest()->paginate($this->pagination) :
+                $this->category->stones :
                 Stone::where('name', 'like', '%' . $this->search . '%')->latest()->paginate($this->pagination)
         ]);
     }
