@@ -16,15 +16,13 @@ Route::controller(PageController::class)->group(function () {
     Route::get('/blog/{slug}', 'blogPost')->name('page.blog_post');
 });
 
+// Livewire Route
 Route::get('/articles', Blog::class)->name('page.blog');
-
-Route::get('/product/category', [FrontController::class, 'category'])->name('front.category');
-
 Route::get('/product/category/{category:slug}', ProductCategories::class)->name('product.category');
-
 Route::get('/product', ProductIndex::class)->name('product.index');
 
 Route::get('/product/{stone:slug}', [FrontController::class, 'details'])->name('product.details');
+Route::get('/product/category', [FrontController::class, 'category'])->name('front.category');
 
 Route::post('/order/begin/{stone:slug}', [OrderController::class, 'saveOrder'])->name('front.save_order');
 

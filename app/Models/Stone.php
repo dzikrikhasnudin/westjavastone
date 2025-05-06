@@ -23,6 +23,7 @@ class Stone extends Model
         'weight',
         'status',
         'is_popular',
+        'dimensions',
         'category_id',
     ];
 

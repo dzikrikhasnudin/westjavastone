@@ -2,18 +2,17 @@
     <x-slot:title>Homepage - West Java Stone</x-slot:title>
 
     {{-- CTA Section --}}
-    <section class="bg-white dark:bg-gray-900">
+    <section class="bg-sky-50 dark:bg-gray-900">
         <div
             class="gap-8 items-center py-8 px-4 mx-auto max-w-screen-xl xl:gap-16 md:grid md:grid-cols-2 sm:py-16 lg:px-6">
-            <img class="w-full block dark:hidden" src="{{ asset('images/agate-hero.png') }}" alt="dashboard image">
-            <img class="w-full hidden dark:block" src="{{ asset('images/agate-hero.png') }}" alt="dashboard image">
+            <img class="w-full hidden md:block" src="{{ asset('images/agate-hero.png') }}" alt="dashboard image">
             <div class="mt-4 md:mt-0">
-                <h2 class="mb-4 text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white">Own a Piece of
+                <h2 class="mb-4 text-4xl tracking-tight font-extrabold text-sky-900 dark:text-white">Own a Piece of
                     Nature’s Legacy.</h2>
                 <p class="mb-6 font-light text-gray-500 md:text-lg dark:text-gray-400">Browse our collection and
                     experience the natural elegance of Garut’s finest petrified wood.</p>
-                <a href="#"
-                    class="inline-flex items-center text-white  bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:focus:ring-primary-900">
+                <a href="{{ route('product.index') }}"
+                    class="inline-flex items-center text-white  bg-sky-700 hover:bg-sky-800 focus:ring-4 focus:ring-sky-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:focus:ring-sky-900">
                     Get started
                     <svg class="ml-2 -mr-1 w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
                         xmlns="http://www.w3.org/2000/svg">
@@ -27,10 +26,10 @@
     </section>
 
     {{-- Content Section --}}
-    <section class="bg-white dark:bg-gray-900">
+    <section class="bg-gray-50 dark:bg-gray-800">
         <div class="gap-16 items-center py-8 px-4 mx-auto max-w-screen-xl lg:grid lg:grid-cols-2 lg:py-16 lg:px-6">
             <div class="font-light text-gray-500 sm:text-lg dark:text-gray-400">
-                <h2 class="mb-4 text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white">From the City of
+                <h2 class="mb-4 text-4xl tracking-tight font-extrabold text-sky-900 dark:text-white">From the City of
                     Diamonds, to the World</h2>
                 <p class="mb-4">From the volcanic heart of Garut, we bring you rare petrified wood and agate — crafted
                     by nature, perfected by artisans. From polished slabs to raw treasures, our stones are handpicked to
@@ -38,15 +37,13 @@
                     collectors,
                     designers, and creators around the globe. We connect Earth’s rarest forms with those who truly
                     appreciate them.</p>
-                <p>Authentic. Timeless. Truly Indonesian.</p>
+                <p class="font-semibold">Authentic. Timeless. Truly Indonesian.</p>
             </div>
             <div class="grid grid-cols-2 gap-4 mt-8">
-                <img class="w-full rounded-lg"
-                    src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/content/office-long-2.png"
+                <img class="w-full rounded-lg" src="{{ asset('assets/images/stones/agate.jpg') }}"
                     alt="office content 1">
                 <img class="mt-4 w-full lg:mt-10 rounded-lg"
-                    src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/content/office-long-1.png"
-                    alt="office content 2">
+                    src="{{ asset('assets/images/stones/stone collection.jpg') }}" alt="office content 2">
             </div>
         </div>
     </section>
@@ -55,17 +52,18 @@
 
 
     <section class="max-w-7xl mx-auto px-4 py-12">
-        <h1 class="text-3xl font-bold mb-8 text-center">Explore Our Stone Categories</h1>
+        <h1 class="text-3xl font-bold mb-8 text-center text-gray-800 dark:text-white">Explore Our Stone Categories</h1>
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
             <!-- Category Card -->
-            @foreach ($data['categories']->take as $category)
-            <div class="bg-white rounded-2xl  shadow hover:shadow-lg transition p-4">
-                <img src="{{ asset('images/petrified-wood.png') }}" alt="Polished Stones"
+            @foreach ($data['categories']->take(3) as $category)
+            <div class="bg-white rounded-2xl  shadow hover:shadow-lg transition p-4 dark:bg-gray-800">
+                <img src="{{ Storage::url($category->icon) }}" alt="{{ $category->name }}"
                     class="w-full h-48 object-cover rounded-xl mb-4">
-                <h2 class="text-xl font-semibold mb-1">{{ $category->name }}</h2>
-                <p class="text-sm text-gray-600 mb-3">Smooth-finished pieces perfect for display or luxury interior
-                    use.</p>
-                <a href="{{ route('front.category', $category->slug) }}" class="text-indigo-600 font-medium hover:underline">View Products →</a>
+                <div class="flex justify-between">
+                    <h2 class="text-xl font-semibold mb-1 text-gray-900 dark:text-white">{{ $category->name }}</h2>
+                    <a href="{{ route('product.category', $category->slug) }}"
+                        class="text-sky-600 font-medium hover:underline dark:text-sky-400">View Products →</a>
+                </div>
             </div>
             @endforeach
 
@@ -86,7 +84,7 @@
                     class="p-6 bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
                     <div class="flex justify-between items-center mb-5 text-gray-500">
                         <span
-                            class="bg-primary-100 text-primary-800 text-xs font-medium inline-flex items-center px-2.5 py-0.5 rounded dark:bg-primary-200 dark:text-primary-800">
+                            class="bg-sky-100 text-sky-800 text-xs font-medium inline-flex items-center px-2.5 py-0.5 rounded dark:bg-sky-200 dark:text-sky-800">
                             <svg class="mr-1 w-3 h-3" fill="currentColor" viewBox="0 0 20 20"
                                 xmlns="http://www.w3.org/2000/svg">
                                 <path
@@ -112,7 +110,7 @@
                             </span>
                         </div>
                         <a href="#"
-                            class="inline-flex items-center font-medium text-primary-600 dark:text-primary-500 hover:underline">
+                            class="inline-flex items-center font-medium text-sky-600 dark:text-sky-500 hover:underline">
                             Read more
                             <svg class="ml-2 w-4 h-4" fill="currentColor" viewBox="0 0 20 20"
                                 xmlns="http://www.w3.org/2000/svg">
@@ -127,7 +125,7 @@
                     class="p-6 bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
                     <div class="flex justify-between items-center mb-5 text-gray-500">
                         <span
-                            class="bg-primary-100 text-primary-800 text-xs font-medium inline-flex items-center px-2.5 py-0.5 rounded dark:bg-primary-200 dark:text-primary-800">
+                            class="bg-sky-100 text-sky-800 text-xs font-medium inline-flex items-center px-2.5 py-0.5 rounded dark:bg-sky-200 dark:text-sky-800">
                             <svg class="mr-1 w-3 h-3" fill="currentColor" viewBox="0 0 20 20"
                                 xmlns="http://www.w3.org/2000/svg">
                                 <path fill-rule="evenodd"
@@ -154,7 +152,7 @@
                             </span>
                         </div>
                         <a href="#"
-                            class="inline-flex items-center font-medium text-primary-600 dark:text-primary-500 hover:underline">
+                            class="inline-flex items-center font-medium text-sky-600 dark:text-sky-500 hover:underline">
                             Read more
                             <svg class="ml-2 w-4 h-4" fill="currentColor" viewBox="0 0 20 20"
                                 xmlns="http://www.w3.org/2000/svg">

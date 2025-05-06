@@ -40,6 +40,7 @@ class StoneResource extends Resource
                         TextInput::make('name')->required()->maxLength(255),
                         TextInput::make('price')->required()->numeric()->prefix('USD'),
                         TextInput::make('weight')->required()->numeric()->suffix('Kilograms'),
+                        TextInput::make('dimensions'),
                         FileUpload::make('thumbnail')->image()->required(),
                         Repeater::make('photos')->relationship('photos')->schema([
                             FileUpload::make('photo')->required(),
