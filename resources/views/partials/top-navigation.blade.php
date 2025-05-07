@@ -3,7 +3,7 @@
         <div class="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl">
             <a href="{{ route('front.index') }}" class="flex items-center">
                 <img src="{{ asset('images/logo.png') }}" class="mr-3 h-6 sm:h-9" alt="Flowbite Logo" />
-                <span class="self-center text-xl font-semibold whitespace-nowrap dark:text-white">West Java Stone</span>
+                <span class="self-center text-xl font-semibold whitespace-nowrap text-white">West Java Stone</span>
             </a>
             <div class="flex items-center lg:order-2">
                 <button id="theme-toggle" type="button"

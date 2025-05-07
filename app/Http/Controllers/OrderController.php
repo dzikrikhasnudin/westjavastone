@@ -20,12 +20,15 @@ class OrderController extends Controller
         $this->orderService = $orderService;
     }
 
-    public function saveOrder(StoreOrderRequest $request, Stone $stone)
+    public function saveOrder(Request $request, Stone $stone)
     {
         // proses penyimpanan ke session
-        $validated = $request->validated();
+        // $validated = $request->validated(['stone_id']);
 
-        $validated['stone_id'] = $stone->id;
+        // $validated['stone_id'] = $stone->id;
+        $validated = $request->validate([
+            'stone_id' => ['required']
+        ]);
 
         $this->orderService->beginOrder($validated);
 

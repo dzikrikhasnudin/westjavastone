@@ -54,9 +54,8 @@
             </div>
             <div class="grid grid-cols-3 mb-2">
                 <p class="text-gray-600 dark:text-gray-400">Dimensions</p>
-                <p class="col-span-2 text-gray-800 dark:text-white ">{{ $stone->dimensions }}</p>
+                <p class="col-span-2 text-gray-800 dark:text-white ">{{ $stone->dimensions ?? '-' }}</p>
             </div>
-
 
             <hr class="my-6 md:my-4 border-gray-200 dark:border-gray-800" />
 
@@ -67,8 +66,11 @@
 
             <hr class="my-6 md:my-4 border-gray-200 dark:border-gray-800" />
 
+            <form action="{{ route('front.save_order', $stone->slug) }}" method="POST" >
+            @csrf
+            <input type="hidden" name="stone_id" id="stone_id" value="{{ $stone->id }}">
             <div class="mt-6 sm:gap-4 sm:items-center sm:flex sm:mt-8">
-                <a href="#"
+                <button type="submit"
                     class="text-white mt-4 sm:mt-0 bg-sky-700 hover:bg-sky-800 focus:ring-4 focus:ring-sky-300 font-semibold text-md rounded-lg px-5 py-2.5 dark:bg-sky-600 dark:hover:bg-sky-700 focus:outline-none dark:focus:ring-sky-800 flex items-center justify-center"
                     role="button">
                     <svg class="w-5 h-5 -ms-2 me-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24"
@@ -76,10 +78,10 @@
                         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="M4 4h1.5L8 16m0 0h8m-8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm.75-3H7.5M11 7H6.312M17 4v6m-3-3h6" />
                     </svg>
-
                     Checkout
-                </a>
+                </button>
             </div>
+        </form>
         </div>
     </div>
 

@@ -51,7 +51,8 @@
     @include('partials.list-product')
 
 
-    <section class="max-w-7xl mx-auto px-4 py-12">
+    <section class="bg-sky-50 dark:bg-gray-900">
+      <div class="py-8 px-4 mx-auto max-w-screen-xl lg:py-10 lg:px-6">
         <h1 class="text-3xl font-bold mb-8 text-center text-gray-800 dark:text-white">Explore Our Stone Categories</h1>
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
             <!-- Category Card -->
@@ -68,10 +69,11 @@
             @endforeach
 
         </div>
+      </div>
     </section>
 
     {{-- Blog Section --}}
-    <section class="bg-white dark:bg-gray-900">
+    <section class="bg-sky-50 dark:bg-gray-900">
         <div class="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-6">
             <div class="mx-auto max-w-screen-sm text-center lg:mb-16 mb-8">
                 <h2 class="mb-4 text-3xl lg:text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white">From

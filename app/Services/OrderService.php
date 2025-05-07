@@ -32,8 +32,6 @@ class OrderService
     public function beginOrder(array $data)
     {
         $orderData = [
-            'stone_size' => $data['stone_size'],
-            'size_id' => $data['size_id'],
             'stone_id' => $data['stone_id'],
         ];
 
