@@ -15,10 +15,16 @@ class OrderForm extends Component
     public $promoCodeId = null;
     public $quantity = 1;
     public $discount = 0;
+    public $totalTax;
     public $grandTotalAmount;
     public $totalDiscountAmount = 0;
     public $name;
     public $email;
+    public $phone;
+    public $country;
+    public $city;
+    public $postcode;
+    public $address;
 
     protected $orderService;
 
@@ -29,42 +35,17 @@ class OrderForm extends Component
 
     public function mount(Stone $stone, $orderData)
     {
+        $this->totalTax = $orderData['total_tax'];
         $this->stone = $stone;
         $this->orderData = $orderData;
         $this->subTotalAmount = $stone->price;
-        $this->grandTotalAmount = $stone->price;
-    }
-
-    public function updatedQuantity()
-    {
-        $this->validateOnly('quantity', [
-            'quantity' => 'required|integer|min:1|max:' . $this->stone->stock,
-        ], [
-            'quantity.max' => 'Stock tidak tersedia.'
-        ]);
-        $this->calculateTotal();
+        $this->grandTotalAmount = $stone->price + $this->totalTax;
     }
 
     public function calculateTotal(): void
     {
         $this->subTotalAmount = $this->stone->price * $this->quantity;
-        $this->grandTotalAmount = $this->subTotalAmount - $this->discount;
-    }
-
-    public function incrementQuantity()
-    {
-        if($this->quantity < $this->stone->stock) {
-            $this->quantity++;
-            $this->calculateTotal();
-        }
-    }
-
-    public function decrementQuantity()
-    {
-        if ($this->quantity > 1) {
-            $this->quantity--;
-            $this->calculateTotal();
-        }
+        $this->grandTotalAmount = $this->subTotalAmount - $this->discount + $this->totalTax;
     }
 
     public function updatedPromoCode()
@@ -74,7 +55,7 @@ class OrderForm extends Component
 
     public function applyPromoCode()
     {
-        if(!$this->promoCode) {
+        if (!$this->promoCode) {
             $this->resetDiscount();
             return;
         }
@@ -87,7 +68,7 @@ class OrderForm extends Component
             session()->flash('error', $result['error']);
             $this->resetDiscount();
         } else {
-            session()->flash('message', 'Kode promo tersedia, yay!');
+            session()->flash('message', 'Promo code applied successfully!!');
             $this->discount = $result['discount'];
             $this->calculateTotal();
             $this->promoCodeId = $result['promoCodeId'];
@@ -108,7 +89,11 @@ class OrderForm extends Component
         return [
             'name' => 'required|string|max:255',
             'email' => 'required|email|max:255',
-            'quantity' => 'required|integer|min:1|max:' .  $this->stone->stock,
+            'phone' => ['required', 'string', 'max:255'],
+            'country' => ['required', 'string', 'max:255'],
+            'city' => ['required', 'string', 'max:255'],
+            'postcode' => ['required', 'string', 'max:255'],
+            'address' => ['required', 'string']
         ];
     }
 
@@ -117,6 +102,12 @@ class OrderForm extends Component
         return [
             'name' => $validateData['name'],
             'email' => $validateData['email'],
+            'phone' => $validateData['phone'],
+            'country' => $validateData['country'],
+            'city' => $validateData['city'],
+            'post_code' => $validateData['postcode'],
+            'address' => $validateData['address'],
+
             'grand_total_amount' => $this->grandTotalAmount,
             'sub_total_amount' => $this->subTotalAmount,
             'total_discount_amount' => $this->totalDiscountAmount,
@@ -135,7 +126,7 @@ class OrderForm extends Component
 
         $this->orderService->updateCustomerData($bookingData);
 
-        return redirect()->route('front.customer_data');
+        return redirect()->route('front.payment');
     }
 
     public function render()

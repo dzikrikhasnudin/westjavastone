@@ -41,7 +41,6 @@ class OrderService
     public function getMyOrderDetails(array $validated)
     {
         return $this->orderRepository->findByTrxIdAndPhoneNumber($validated['booking_trx_id'], $validated['phone']);
-
     }
 
     public function getOrderDetails()
@@ -73,11 +72,14 @@ class OrderService
             $grandTotalAmount = $subTotalAmount - $discount;
             $promoCodeId = $promo->id;
 
-            return ['discount' => $discount, 'grandTotalAmount' => $grandTotalAmount,
-            'promoCodeId' => $promoCodeId];
+            return [
+                'discount' => $discount,
+                'grandTotalAmount' => $grandTotalAmount,
+                'promoCodeId' => $promoCodeId
+            ];
         }
 
-        return ['error' => 'Kode promo tidak tersedia'];
+        return ['error' => 'Invalid promo code. Please try again.'];
     }
 
     public function saveBookingTransaction(array $data)

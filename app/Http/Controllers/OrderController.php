@@ -36,7 +36,7 @@ class OrderController extends Controller
         return redirect()->route('front.booking', $stone->slug);
     }
 
-    public function booking()
+    public function checkout()
     {
         $data = $this->orderService->getOrderDetails();
         // dd($data);
@@ -70,7 +70,7 @@ class OrderController extends Controller
         $validated = $request->validated();
         $productTransactionId = $this->orderService->paymentConfirm($validated);
 
-        if($productTransactionId) {
+        if ($productTransactionId) {
             return redirect()->route('front.order_finished', $productTransactionId);
         }
 
@@ -82,11 +82,13 @@ class OrderController extends Controller
         return view('order.order_finished', compact('productTransaction'));
     }
 
-    public function checkBooking(){
+    public function checkBooking()
+    {
         return view('order.my_order');
     }
 
-    public function checkBookingDetails(StoreCheckBookingRequest $request){
+    public function checkBookingDetails(StoreCheckBookingRequest $request)
+    {
         $validated = $request->validated();
 
         $orderDetails = $this->orderService->getMyOrderDetails($validated);
