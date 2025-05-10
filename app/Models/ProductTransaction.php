@@ -17,6 +17,7 @@ class ProductTransaction extends Model
         'phone',
         'email',
         'booking_trx_id',
+        'country',
         'city',
         'post_code',
         'address',
@@ -27,7 +28,6 @@ class ProductTransaction extends Model
         'stone_id',
         'promo_code_id',
         'proof',
-
     ];
 
     public function generateUniqueTrxId()

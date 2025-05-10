@@ -72,11 +72,17 @@
                             </div>
 
                             <dl
-                                class="flex items-center justify-between gap-4 border-t border-gray-200 pt-2 dark:border-gray-700">
+                                class="flex items-center justify-between gap-4 border-gray-200 py-2 dark:border-gray-700 border-y">
                                 <dt class="text-lg font-bold text-gray-900 dark:text-white">Grand Total</dt>
                                 <dd class="text-lg font-bold text-gray-900 dark:text-white">${{
                                     number_format($orderData['grand_total_amount'], 0,',','.') }}</dd>
                             </dl>
+                        </div>
+                        <div class="relative overflow-x-auto border-b border-gray-200 dark:border-gray-800">
+                            <h4 class="text-xl font-semibold text-gray-900 dark:text-white">Payment</h4>
+
+                            {{-- <div id="paypal-button-container" class="paypal-button-container"></div>
+                            <p id="result-message"></p> --}}
                         </div>
 
                         <div class="flex items-start sm:items-center">
@@ -100,4 +106,18 @@
             </div>
         </form>
     </section>
+
+    {{-- Paypal Integration --}}
+    {{--  --}}
+    {{-- @push('style')
+    <link
+    rel="stylesheet"
+    type="text/css"
+    href="https://www.paypalobjects.com/webstatic/en_US/developer/docs/css/cardfields.css"/>
+    @endpush
+
+    @push('script')
+    <script src="https://www.paypal.com/sdk/js?client-id=%{{ env('PAYPAL_CLIENT_ID') }}%&buyer-country=US&currency=USD&components=buttons&enable-funding=venmo"></script>
+    <script src="{{ asset('js/paypal.js') }}"></script>
+    @endpush --}}
 </x-app-layout>

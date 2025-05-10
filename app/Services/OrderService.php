@@ -110,6 +110,7 @@ class OrderService
                 $validated['phone'] = $orderData['phone'];
                 $validated['address'] = $orderData['address'];
                 $validated['post_code'] = $orderData['post_code'];
+                $validated['country'] = $orderData['country'];
                 $validated['city'] = $orderData['city'];
                 $validated['quantity'] = $orderData['quantity'];
                 $validated['sub_total_amount'] = $orderData['sub_total_amount'];
