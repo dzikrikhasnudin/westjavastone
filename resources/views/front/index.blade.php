@@ -1,6 +1,16 @@
 <x-app-layout>
     <x-slot:title>Homepage - West Java Stone</x-slot:title>
 
+    @if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+    @endif
+
     {{-- CTA Section --}}
     <section class="bg-sky-50 dark:bg-gray-900">
         <div

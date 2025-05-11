@@ -68,6 +68,7 @@ class OrderController extends Controller
     public function paymentConfirm(StorePaymentRequest $request)
     {
         $validated = $request->validated();
+
         $productTransactionId = $this->orderService->paymentConfirm($validated);
 
         if ($productTransactionId) {
@@ -79,7 +80,7 @@ class OrderController extends Controller
 
     public function orderFinished(ProductTransaction $productTransaction)
     {
-        return view('order.order_finished', compact('productTransaction'));
+        return view('order.finished', compact('productTransaction'));
     }
 
     public function checkBooking()

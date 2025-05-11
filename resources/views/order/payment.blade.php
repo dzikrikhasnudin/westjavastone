@@ -1,6 +1,7 @@
 <x-app-layout>
     <section class="bg-white py-8 antialiased dark:bg-gray-900 md:py-16">
-        <form action="#" class="mx-auto max-w-screen-xl px-4 2xl:px-0">
+        <form action="{{ route('front.payment_confirm') }}" method="POST" enctype="multipart/form-data" class="mx-auto max-w-screen-xl px-4 2xl:px-0">
+            @csrf
             <div class="mx-auto">
                 <h2 class="text-xl font-semibold text-gray-900 dark:text-white sm:text-2xl">Payment and Order summary
                 </h2>
@@ -53,7 +54,7 @@
                         <div class="space-y-4">
                             <div class="space-y-2">
                                 <dl class="flex items-center justify-between gap-4">
-                                    <dt class="text-gray-500 dark:text-gray-400">Original price</dt>
+                                    <dt class="text-gray-500 dark:text-gray-400">Original Price</dt>
                                     <dd class="text-base font-medium text-gray-900 dark:text-white">${{
                                         number_format($orderData['sub_total_amount'], 0,',','.') }}</dd>
                                 </dl>
@@ -81,8 +82,27 @@
                         <div class="relative overflow-x-auto border-b border-gray-200 dark:border-gray-800">
                             <h4 class="text-xl font-semibold text-gray-900 dark:text-white">Payment</h4>
 
-                            {{-- <div id="paypal-button-container" class="paypal-button-container"></div>
-                            <p id="result-message"></p> --}}
+                            <div class="flex items-center gap-16">
+                                <div class="max-w-md">
+                                    <img class="w-24 h-auto" src="{{ asset('assets/images/logos/paypal.png') }}" alt="">
+                                </div>
+                                <div>
+                                    <p class="text-md font-semibold">westjavastone@gmail.com</p>
+                                    <p class="text-sky-600">@westjavastone</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="relative overflow-x-auto border-gray-200 dark:border-gray-800">
+                            <h4 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">Upload Proof of Transaction</h4>
+
+                            <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="file_input">Please upload a clear image of your payment receipt to help us verify your transaction. </label>
+                            <input name="proof" class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" aria-describedby="file_input_help" id="proof" type="file">
+                            <p class="mt-1 text-sm text-gray-500 dark:text-gray-300" id="file_input_help">Accepted file formats: JPG, JPEG, or PNG.</p>
+                              @error('proof')
+                            <p class="mt-2 text-xs text-red-600 dark:text-red-400">{{ $message}}</p>
+                            @enderror
+
+
                         </div>
 
                         <div class="flex items-start sm:items-center">
@@ -106,18 +126,4 @@
             </div>
         </form>
     </section>
-
-    {{-- Paypal Integration --}}
-    {{--  --}}
-    {{-- @push('style')
-    <link
-    rel="stylesheet"
-    type="text/css"
-    href="https://www.paypalobjects.com/webstatic/en_US/developer/docs/css/cardfields.css"/>
-    @endpush
-
-    @push('script')
-    <script src="https://www.paypal.com/sdk/js?client-id=%{{ env('PAYPAL_CLIENT_ID') }}%&buyer-country=US&currency=USD&components=buttons&enable-funding=venmo"></script>
-    <script src="{{ asset('js/paypal.js') }}"></script>
-    @endpush --}}
 </x-app-layout>

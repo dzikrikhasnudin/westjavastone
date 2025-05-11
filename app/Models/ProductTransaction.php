@@ -30,7 +30,7 @@ class ProductTransaction extends Model
         'proof',
     ];
 
-    public function generateUniqueTrxId()
+    public static function generateUniqueTrxId()
     {
         $prefix = 'TRX';
         do {

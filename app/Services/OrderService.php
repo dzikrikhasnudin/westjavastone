@@ -98,6 +98,8 @@ class OrderService
 
         $productTransactionId = null;
 
+        // dd($orderData);
+
         try { // closure based transaction
             DB::transaction(function () use ($validated, &$productTransactionId, $orderData) {
                 if (isset($validated['proof'])) {
@@ -112,17 +114,21 @@ class OrderService
                 $validated['post_code'] = $orderData['post_code'];
                 $validated['country'] = $orderData['country'];
                 $validated['city'] = $orderData['city'];
-                $validated['quantity'] = $orderData['quantity'];
+                // $validated['quantity'] = $orderData['quantity'];
                 $validated['sub_total_amount'] = $orderData['sub_total_amount'];
                 $validated['grand_total_amount'] = $orderData['grand_total_amount'];
                 $validated['discount_amount'] = $orderData['total_discount_amount'];
                 $validated['promo_code_id'] = $orderData['promo_code_id'];
                 $validated['stone_id'] = $orderData['stone_id'];
-                $validated['stone_size'] = $orderData['size_id'];
+                // $validated['stone_size'] = $orderData['size_id'];
                 $validated['is_paid'] = false;
                 $validated['booking_trx_id'] = ProductTransaction::generateUniqueTrxId();
 
+                dd($validated);
+
                 $newTransaction = $this->orderRepository->createTransaction($validated);
+
+
                 $productTransactionId = $newTransaction->id;
 
                 $this->orderRepository->clearSession();

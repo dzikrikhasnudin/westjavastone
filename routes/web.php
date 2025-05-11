@@ -37,4 +37,4 @@ Route::get('/order/payment', [OrderController::class, 'payment'])->name('front.p
 
 Route::post('/order/payment/confirm', [OrderController::class, 'paymentConfirm'])->name('front.payment_confirm');
 
-Route::get('/order/finished/{productTransaction:id}', [OrderController::class, 'orderFinished'])->name('front.order_finished');
+Route::get('/order/finished/{productTransaction:id}', [OrderController::class, 'orderFinished'])->name('order.finished');
