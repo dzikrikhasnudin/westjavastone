@@ -124,10 +124,7 @@ class OrderService
                 $validated['is_paid'] = false;
                 $validated['booking_trx_id'] = ProductTransaction::generateUniqueTrxId();
 
-                dd($validated);
-
                 $newTransaction = $this->orderRepository->createTransaction($validated);
-
 
                 $productTransactionId = $newTransaction->id;
 

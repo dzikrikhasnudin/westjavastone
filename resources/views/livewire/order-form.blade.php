@@ -134,7 +134,7 @@
                     <div class="flex items-center gap-4">
                         <input type="text" id="voucher" wire:model.live.debounce.500ms='promoCode'
                             class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-sky-500 focus:ring-sky-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder:text-gray-400 dark:focus:border-sky-500 dark:focus:ring-sky-500"
-                            placeholder="" required />
+                            placeholder="" />
 
                     </div>
                     @if (session()->has('message'))

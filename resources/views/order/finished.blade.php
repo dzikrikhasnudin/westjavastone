@@ -1,34 +1,38 @@
 <x-app-layout>
-<section class="bg-white py-8 antialiased dark:bg-gray-900 md:py-16">
-  <div class="mx-auto max-w-2xl px-4 2xl:px-0">
-      <h2 class="text-xl font-semibold text-gray-900 dark:text-white sm:text-2xl mb-2">Thanks for your order!</h2>
-      <p class="text-gray-500 dark:text-gray-400 mb-6 md:mb-8">Your order <a href="#" class="font-medium text-gray-900 dark:text-white hover:underline">#7564804</a> will be processed within 24 hours during working days. We will notify you by email once your order has been shipped.</p>
-      <div class="space-y-4 sm:space-y-2 rounded-lg border border-gray-100 bg-gray-50 p-6 dark:border-gray-700 dark:bg-gray-800 mb-6 md:mb-8">
-          <dl class="sm:flex items-center justify-between gap-4">
-              <dt class="font-normal mb-1 sm:mb-0 text-gray-500 dark:text-gray-400">Date</dt>
-              <dd class="font-medium text-gray-900 dark:text-white sm:text-end">14 May 2024</dd>
-          </dl>
-          <dl class="sm:flex items-center justify-between gap-4">
-              <dt class="font-normal mb-1 sm:mb-0 text-gray-500 dark:text-gray-400">Payment Method</dt>
-              <dd class="font-medium text-gray-900 dark:text-white sm:text-end">JPMorgan monthly installments</dd>
-          </dl>
-          <dl class="sm:flex items-center justify-between gap-4">
-              <dt class="font-normal mb-1 sm:mb-0 text-gray-500 dark:text-gray-400">Name</dt>
-              <dd class="font-medium text-gray-900 dark:text-white sm:text-end">Flowbite Studios LLC</dd>
-          </dl>
-          <dl class="sm:flex items-center justify-between gap-4">
-              <dt class="font-normal mb-1 sm:mb-0 text-gray-500 dark:text-gray-400">Address</dt>
-              <dd class="font-medium text-gray-900 dark:text-white sm:text-end">34 Scott Street, San Francisco, California, USA</dd>
-          </dl>
-          <dl class="sm:flex items-center justify-between gap-4">
-              <dt class="font-normal mb-1 sm:mb-0 text-gray-500 dark:text-gray-400">Phone</dt>
-              <dd class="font-medium text-gray-900 dark:text-white sm:text-end">+(123) 456 7890</dd>
-          </dl>
-      </div>
-      <div class="flex items-center space-x-4">
-          <a href="#" class="text-white bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-primary-600 dark:hover:bg-primary-700 focus:outline-none dark:focus:ring-primary-800">Track your order</a>
-          <a href="#" class="py-2.5 px-5 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-primary-700 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">Return to shopping</a>
-      </div>
+<section class="bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-gray-100 py-12 flex items-center justify-center px-4">
+  <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-lg w-full max-w-md text-center p-6 space-y-6">
+
+    <!-- Image -->
+    <img src="{{ Storage::url($productTransaction->stone->thumbnail ) }}" alt="{{ $productTransaction->stone->name }}" class="w-auto h-32 mx-auto rounded-xl shadow-md">
+
+    <!-- Title and description -->
+    <h2 class="text-2xl font-bold">Your Order is on the Way!</h2>
+    <p class="text-sm">
+      Thank you for ordering from <strong>West Java Stone</strong>.<br>
+      Please check your order status regularly for updates.
+    </p>
+
+    <!-- Transaction Code -->
+    <div class="border-2 border-sky-400 dark:border-sky-800 rounded-lg px-4 py-2 flex items-center justify-center space-x-2">
+      <svg class="w-5 h-5 text-gray-600 dark:text-gray-300" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M3 10h13M9 21h6a2 2 0 002-2v-5H5v5a2 2 0 002 2z" />
+      </svg>
+      <span class="text-sm">Booking ID <strong>{{ $productTransaction->booking_trx_id }}</strong></span>
+      <svg class="w-4 h-4 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 00-1.414 0L9 11.586 6.707 9.293a1 1 0 00-1.414 1.414l3 3a1 1 0 001.414 0l7-7a1 1 0 000-1.414z" clip-rule="evenodd" />
+      </svg>
+    </div>
+
+    <!-- Buttons -->
+    <div class="space-y-3 text-center">
+      <a href="{{ route('product.index') }}" class="inline-flex justify-center text-center w-full bg-sky-700 text-white font-semibold py-2 rounded-lg hover:bg-sky-600 transition duration-200">
+        Order More
+      </a>
+      <a href="{{ route('order.tracking') }}" class="inline-flex justify-center text-center w-full bg-gray-900 dark:bg-white text-white dark:text-black font-semibold py-2 rounded-lg hover:opacity-90 transition duration-200">
+        Track Order
+      </a>
+    </div>
+
   </div>
 </section>
 </x-app-layout>

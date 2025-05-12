@@ -72,7 +72,7 @@ class OrderController extends Controller
         $productTransactionId = $this->orderService->paymentConfirm($validated);
 
         if ($productTransactionId) {
-            return redirect()->route('front.order_finished', $productTransactionId);
+            return redirect()->route('order.finished', $productTransactionId);
         }
 
         return redirect()->route('front.index')->withErrors(['error' => 'Payment failed. Please try again.']);
@@ -83,9 +83,9 @@ class OrderController extends Controller
         return view('order.finished', compact('productTransaction'));
     }
 
-    public function checkBooking()
+    public function checkOrder()
     {
-        return view('order.my_order');
+        return view('order.tracking');
     }
 
     public function checkBookingDetails(StoreCheckBookingRequest $request)
