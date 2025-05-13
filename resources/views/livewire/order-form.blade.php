@@ -33,9 +33,9 @@
                         <img src="{{ Storage::url($stone->thumbnail) }}" alt="{{ $stone->name }}"
                             class="w-24 h-24 rounded object-cover mr-4">
                         <div>
-                            <h2 class="text-lg font-semibold text-gray-800">{{ $stone->name }}</h2>
+                            <h2 class="text-lg font-semibold text-gray-800 dark:text-white">{{ $stone->name }}</h2>
                             <p class="text-base text-sky-500">{{ $stone->category->name }}</p>
-                            <p class="text-base text-gray-500">{{ $stone->weight }} kg</p>
+                            <p class="text-base text-gray-500 dark:text-gray-400">{{ $stone->weight }} kg</p>
                         </div>
                     </div>
                 </div>

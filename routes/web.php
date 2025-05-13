@@ -27,6 +27,8 @@ Route::get('/product/category', [FrontController::class, 'category'])->name('fro
 Route::post('/order/begin/{stone:slug}', [OrderController::class, 'saveOrder'])->name('front.save_order');
 
 Route::get('/track-order', [OrderController::class, 'checkOrder'])->name('order.tracking');
+Route::post('/track-order/details', [OrderController::class, 'checkOrderDetails'])->name('order.tracking_details');
+
 Route::get('/order/checkout', [OrderController::class, 'checkout'])->name('front.booking');
 
 Route::get('/order/booking/customer-data', [OrderController::class, 'customerData'])->name('front.customer_data');

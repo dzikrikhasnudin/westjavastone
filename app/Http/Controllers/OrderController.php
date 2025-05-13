@@ -88,16 +88,16 @@ class OrderController extends Controller
         return view('order.tracking');
     }
 
-    public function checkBookingDetails(StoreCheckBookingRequest $request)
+    public function checkOrderDetails(StoreCheckBookingRequest $request)
     {
         $validated = $request->validated();
 
         $orderDetails = $this->orderService->getMyOrderDetails($validated);
 
         if ($orderDetails) {
-            return view('order.my_order_details', compact('orderDetails'));
+            return view('order.tracking-details', compact('orderDetails'));
         }
 
-        return redirect()->route('front.check_booking')->withErrors(['error' => 'Transaction not found!']);
+        return redirect()->route('order.tracking')->withErrors(['error' => 'Transaction not found!']);
     }
 }

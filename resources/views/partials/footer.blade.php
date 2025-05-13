@@ -4,9 +4,7 @@
             <div class="mb-6 md:mb-0">
                 <a href="{{ route('front.index') }}" class="flex items-center">
                     <img src="{{ asset('images/logo.png') }}" class="mr-3 h-8" alt="West Java Stone Logo" />
-                    <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">West
-                        Java
-                        Stone</span>
+                    <span class="self-center text-2xl font-semibold whitespace-nowrap text-white">West Java Stone</span>
                 </a>
                 <p class="py-2 text-gray-100 dark:text-gray-400 md:w-1/2">West Java Stone is an exporter of premium
                     petrified

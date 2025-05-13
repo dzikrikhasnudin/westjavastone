@@ -40,7 +40,7 @@ class OrderService
 
     public function getMyOrderDetails(array $validated)
     {
-        return $this->orderRepository->findByTrxIdAndPhoneNumber($validated['booking_trx_id'], $validated['phone']);
+        return $this->orderRepository->findByTrxIdAndEmail($validated['booking_trx_id'], $validated['email']);
     }
 
     public function getOrderDetails()
