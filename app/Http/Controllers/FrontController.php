@@ -47,6 +47,6 @@ class FrontController extends Controller
     public function category()
     {
         $data = $this->frontService->getFrontPageData();
-        return view('front.all-categories', compact('data'));
+        return view('front.categories', compact('data'));
     }
 }
