@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\BlogPost;
 use App\Models\Stone;
 use App\Models\Category;
 use Illuminate\Http\Request;
@@ -31,7 +32,8 @@ class FrontController extends Controller
     public function index()
     {
         $data = $this->frontService->getFrontPageData();
-        return view('front.index', compact('data'));
+        $articles = BlogPost::latest()->take(2)->get();
+        return view('front.index', compact('data', 'articles'));
     }
 
     public function product()

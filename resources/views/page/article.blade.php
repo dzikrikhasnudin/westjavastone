@@ -6,11 +6,10 @@
                 <header class="mb-4 lg:mb-6 not-prose">
                     <h1
                         class="mb-4 text-3xl font-extrabold leading-tight text-gray-900 lg:mb-6 lg:text-4xl dark:text-white">
-                        {{ $page->title }}</h1>
+                        {{ $post->title }}</h1>
                 </header>
 
-
-                {!! $page->content !!}
+                {!! $post->content !!}
             </article>
         </div>
     </main>

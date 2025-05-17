@@ -28,13 +28,13 @@
             <!-- Blog Card -->
             @forelse ($articles as $article)
             <article class="border-b pb-4 dark:border-gray-400">
-                <a href="#">
+                <a href="{{ route('page.article', $article->slug) }}">
                     <img src="{{ Storage::url($article->thumbnail) }}" alt="{{ $article->title }}"
                         class="w-full h-56 object-cover rounded" />
                 </a>
                 <p class="text-sm text-gray-500 dark:text-gray-400 mt-2">Release — {{ $article->created_at->format('d F
                     Y') }}</p>
-                <a href="#">
+                <a href="{{ route('page.article', $article->slug) }}">
                     <h3 class="mt-2 text-xl text-gray-700 dark:text-white font-semibold hover:underline cursor-pointer">
                         {{
                         $article->title

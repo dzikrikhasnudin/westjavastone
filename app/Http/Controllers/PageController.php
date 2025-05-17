@@ -22,7 +22,14 @@ class PageController extends Controller
 
     public function contact()
     {
-        return view('page.contact');
+        $pageExists = Page::where('slug', 'contact-us')->exists();
+
+        if ($pageExists) {
+            $page = Page::where('slug', 'contact-us')->first();
+            return view('page.contact', compact('page'));
+        } else {
+            return abort(404);
+        }
     }
 
     public function blog()
@@ -31,8 +38,11 @@ class PageController extends Controller
 
         return view('page.blog', compact('articles'));
     }
-    public function blogPost(BlogPost $post)
+
+    public function article($slug)
     {
-        return view('page.blog_post');
+        $post = BlogPost::where('slug', $slug)->first();
+        // dd($post);
+        return view('page.article', compact('post'));
     }
 }

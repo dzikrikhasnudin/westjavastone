@@ -13,7 +13,7 @@ Route::get('/', [FrontController::class, 'index'])->name('front.index');
 Route::controller(PageController::class)->group(function () {
     Route::get('/about-us', 'about')->name('page.about');
     Route::get('/contact-us', 'contact')->name('page.contact');
-    Route::get('/blog/{slug}', 'blogPost')->name('page.blog_post');
+    Route::get('/article/{slug}', 'article')->name('page.article');
 });
 
 // Livewire Route
