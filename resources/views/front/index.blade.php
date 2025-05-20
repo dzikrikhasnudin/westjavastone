@@ -47,7 +47,7 @@
                     collectors,
                     designers, and creators around the globe. We connect Earth’s rarest forms with those who truly
                     appreciate them.</p>
-                <p class="font-semibold">Authentic. Timeless. Truly Indonesian.</p>
+                <p class="font-semibold dark:text-gray-100">Authentic. Timeless. Truly Indonesian.</p>
             </div>
             <div class="grid grid-cols-2 gap-4 mt-8">
                 <img class="w-full rounded-lg" src="{{ asset('assets/images/stones/agate.jpg') }}"
@@ -70,10 +70,10 @@
             <div class="bg-white rounded-2xl  shadow hover:shadow-lg transition p-4 dark:bg-gray-800">
                 @if ($category->icon)
                 <img src="{{ Storage::url($category->icon) }}" alt="{{ $category->name }}"
-                class="w-full h-48 object-cover rounded-xl mb-4">
+                class="w-full aspect-square object-cover rounded-xl mb-4">
                 @else
                 <img src="{{ asset('images/no-image-icon.png') }}" alt="{{ $category->name }}"
-                class="w-full h-48 object-cover rounded-xl mb-4">
+                class="w-full aspect-square object-cover rounded-xl mb-4">
                 @endif
                 <div class="flex justify-between">
                     <h2 class="text-xl font-semibold mb-1 text-gray-900 dark:text-white">{{ $category->name }}</h2>
@@ -118,9 +118,9 @@
                     <p class="mb-5 font-light text-gray-500 dark:text-gray-400">{{ $article->description }}</p>
                     <div class="flex justify-between items-center">
                         <div class="flex items-center space-x-4">
-                            <span class="text-sm">{{ $article->created_at->diffForHumans() }}</span>
+                            <span class="text-sm dark:text-gray-50">{{ $article->created_at->diffForHumans() }}</span>
                         </div>
-                        <a href="#"
+                        <a href="{{ route('page.article', $article->slug) }}"
                             class="inline-flex items-center font-medium text-sky-600 dark:text-sky-500 hover:underline">
                             Read more
                             <svg class="ml-2 w-4 h-4" fill="currentColor" viewBox="0 0 20 20"

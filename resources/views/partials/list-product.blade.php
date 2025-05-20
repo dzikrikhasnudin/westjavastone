@@ -1,4 +1,4 @@
-<section class="bg-sky-50 py-8 antialiased md:py-12">
+<section class="bg-sky-50 dark:bg-gray-900 py-8 antialiased md:py-12">
     <div class="mx-auto max-w-screen-xl px-4 2xl:px-0">
         <!-- Heading & Filters -->
         <div class="mb-4 items-center justify-between space-y-4 flex sm:space-y-0 md:mb-8">

@@ -45,4 +45,28 @@ class PageController extends Controller
         // dd($post);
         return view('page.article', compact('post'));
     }
+
+    public function privacyPolicy()
+    {
+        $pageExists = Page::where('slug', 'privacy-policy')->exists();
+
+        if ($pageExists) {
+            $page = Page::where('slug', 'privacy-policy')->first();
+            return view('page.privacy-policy', compact('page'));
+        } else {
+            return abort(404);
+        }
+    }
+
+    public function termsConditions()
+    {
+        $pageExists = Page::where('slug', 'terms-and-conditions')->exists();
+
+        if ($pageExists) {
+            $page = Page::where('slug', 'terms-and-conditions')->first();
+            return view('page.terms-conditions', compact('page'));
+        } else {
+            return abort(404);
+        }
+    }
 }

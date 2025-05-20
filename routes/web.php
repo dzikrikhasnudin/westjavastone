@@ -13,6 +13,8 @@ Route::get('/', [FrontController::class, 'index'])->name('front.index');
 Route::controller(PageController::class)->group(function () {
     Route::get('/about-us', 'about')->name('page.about');
     Route::get('/contact-us', 'contact')->name('page.contact');
+    Route::get('/privacy-policy', 'privacyPolicy')->name('page.privacy_policy');
+    Route::get('/terms-and-conditions', 'termsConditions')->name('page.terms_conditions');
     Route::get('/article/{slug}', 'article')->name('page.article');
 });
 
