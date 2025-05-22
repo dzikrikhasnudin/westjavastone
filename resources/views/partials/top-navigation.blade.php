@@ -44,7 +44,7 @@
                     </li>
                     <li>
                         <x-nav-link href="{{ route('product.index') }}" :active="request()->routeIs('product.index')">
-                            Product</x-nav-link>
+                            Products</x-nav-link>
                     </li>
                     <li>
                         <x-nav-link href="{{ route('page.blog') }}" :active="request()->routeIs('page.blog')">Articles

@@ -1,4 +1,5 @@
 <x-app-layout>
+        <x-slot:title>About Us - West Java Stone</x-slot:title>
     <h2 class="text-2xl font-bold mb-2"></h2>
     <main class="pt-8 pb-16 lg:pt-16 lg:pb-24 antialiased">
         <div class="flex justify-between px-4 mx-auto max-w-screen-xl ">

@@ -6,6 +6,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>{{ $title ?? 'West Java Stone' }}</title>
+
+    <meta name="title" content="{{ $title ?? 'West Java Stone' }}">
+    <meta name="description" content="{{ $description ??  'West Java Stone is an exporter of premium petrified wood from Garut, Indonesia—The City of Diamonds.'}}">
+    <meta name="keywords" content="petrified wood, fossilized wood, stone furniture, Indonesian stone exporter, West Java Stone, Garut, City of Diamonds">
+
+    <link rel="canonical" href="https://www.westjavastone.com/" />
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.westjavastone.com/">
+    <meta property="og:title" content="{{ $title ?? ' West Java Stone' }}">
+    <meta property="og:description" content="{{ $description ?? 'West Java Stone is an exporter of premium petrified wood from Garut, Indonesia—The City of Diamonds.' }}">
+    @isset($metaImage)
+    <meta property="og:image" content="{{ $metaImage }}">
+    @endisset
+
+
+
+
+
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=instrument-sans:400,500,600,700,800" rel="stylesheet" />

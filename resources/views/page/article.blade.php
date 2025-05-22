@@ -1,8 +1,9 @@
 <x-app-layout>
+    <x-slot:title>{{ $post->title }}</x-slot:title>
     <h2 class="text-2xl font-bold mb-2"></h2>
     <main class="pt-8 pb-16 lg:pt-16 lg:pb-24 antialiased">
-        <nav class="flex px-4 mb-4" aria-label="Breadcrumb">
-            <ol class="inline-flex items-center space-x-1 md:space-x-2 rtl:space-x-reverse">
+             <nav class="flex mx-auto max-w-screen-md px-4 lg:px-0 mb-4" aria-label="Breadcrumb">
+            <ol class="inline-flex items-center space-x-1 md:space-x-2">
                 <li class="inline-flex items-center">
                     <a href="#"
                         class="inline-flex items-center text-sm font-medium text-gray-700 hover:text-sky-600 dark:text-gray-400 dark:hover:text-white">
