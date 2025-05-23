@@ -9,4 +9,9 @@ use Filament\Resources\Pages\CreateRecord;
 class CreateStone extends CreateRecord
 {
     protected static string $resource = StoneResource::class;
+
+    protected function getRedirectUrl(): string
+    {
+        return $this->getResource()::getUrl('index');
+    }
 }

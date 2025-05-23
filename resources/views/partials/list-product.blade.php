@@ -29,10 +29,6 @@
                 <div class="pt-6">
                     <div class="mb-4 flex items-center justify-between gap-4">
                         <x-status-badge :status="$stone->status"></x-status-badge>
-                        {{-- <span
-                            class="me-2 rounded bg-green-100 px-2.5 py-0.5 text-xs font-medium text-green-800 dark:bg-green-900 dark:text-green-300 capitalize">
-                            {{ $stone->status }} </span> --}}
-
                     </div>
 
                     <a href="{{ route('product.details', $stone->slug) }}"
@@ -42,7 +38,7 @@
                     <ul class="mt-2 flex items-center gap-4">
                         <li class="flex items-center gap-2">
 
-                            <p class="text-sm font-medium text-gray-500 dark:text-gray-400">Category: <a href="#"
+                            <p class="text-sm font-medium text-gray-500 dark:text-gray-400">Category: <a href="{{ route('product.category', $stone->category->slug) }}"
                                     class="hover:underline hover:text-sky-700 dark:hover:text-sky-400">{{
                                     $stone->category->name }}</a></p>
                         </li>

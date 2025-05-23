@@ -1,4 +1,5 @@
 <x-app-layout>
+        <x-slot:title>Check My Order - West Java Stone</x-slot:title>
     <div class="bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-gray-100 flex items-center justify-center py-10 px-4 w-full">
         <form  method="POST" action="{{ route('order.tracking_details') }}" class="w-full lg:w-1/3">
         @csrf

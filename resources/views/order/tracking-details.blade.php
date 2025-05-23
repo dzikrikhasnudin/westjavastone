@@ -1,5 +1,5 @@
 <x-app-layout>
-
+        <x-slot:title>My Order Details - West Java Stone</x-slot:title>
 <div class="flex justify-center mt-10">
     <h2 class="text-2xl font-bold text-gray-900 dark:text-white">Order Details</h2>
 </div>

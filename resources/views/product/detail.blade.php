@@ -1,5 +1,7 @@
 <x-app-layout>
-
+    <x-slot:title>{{ $stone->name . ' - West Java Stone' }}</x-slot:title>
+    <x-slot:description>{{ $stone->name }}</x-slot:description>
+    <x-slot:metaimage>{{ Storage::url($stone->thumbnail) }}</x-slot:metaimage>
     <div class="max-w-7xl mx-auto px-6 py-10 grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-10">
 
         <!-- Left: Image Gallery -->

@@ -30,6 +30,8 @@ class CategoryResource extends Resource
                 TextInput::make('name')->required()->maxLength(255),
                 FileUpload::make('icon')->image(),
             ]);
+
+            // ->successRedirectUrl(route('filament.admin.resources.categories.index'))
     }
 
     public static function table(Table $table): Table
@@ -42,6 +44,7 @@ class CategoryResource extends Resource
             ->filters([
                 //
             ])
+            ->defaultSort('created_at', 'desc')
             ->actions([
                 Tables\Actions\EditAction::make(),
             ])

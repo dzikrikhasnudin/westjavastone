@@ -1,4 +1,5 @@
 <x-app-layout>
+        <x-slot:title>Payment - West Java Stone</x-slot:title>
     <section class="bg-white py-8 antialiased dark:bg-gray-900 md:py-16">
         <form action="{{ route('front.payment_confirm') }}" method="POST" enctype="multipart/form-data" class="mx-auto max-w-screen-xl px-4 2xl:px-0">
             @csrf

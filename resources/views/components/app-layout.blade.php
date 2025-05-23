@@ -17,8 +17,8 @@
     <meta property="og:url" content="https://www.westjavastone.com/">
     <meta property="og:title" content="{{ $title ?? ' West Java Stone' }}">
     <meta property="og:description" content="{{ $description ?? 'West Java Stone is an exporter of premium petrified wood from Garut, Indonesia—The City of Diamonds.' }}">
-    @isset($metaImage)
-    <meta property="og:image" content="{{ $metaImage }}">
+    @isset($metaimage)
+    <meta property="og:image" content="{{ $metaimage }}">
     @endisset
 
 

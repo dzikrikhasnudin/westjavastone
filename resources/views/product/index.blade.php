@@ -106,7 +106,7 @@
                         <ul class="mt-2 flex items-center gap-4">
                             <li class="flex items-center gap-2">
 
-                                <p class="text-sm font-medium text-gray-500 dark:text-gray-400">Category: <a href="#"
+                                <p class="text-sm font-medium text-gray-500 dark:text-gray-400">Category: <a href="{{ route('product.category', $stone->category->slug) }}"
                                         class="hover:underline hover:text-sky-700 dark:hover:text-sky-400">{{
                                         $stone->category->name }}</a></p>
                             </li>
