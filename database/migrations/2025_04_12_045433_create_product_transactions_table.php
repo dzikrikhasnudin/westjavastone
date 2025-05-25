@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('phone');
             $table->string('email');
             $table->string('booking_trx_id');
+            $table->string('country')->nullable();
             $table->string('city');
             $table->string('post_code');
             $table->string('proof');
