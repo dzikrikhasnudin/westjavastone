@@ -34,7 +34,8 @@ class PromoCodeResource extends Resource
     {
         return $table
             ->columns([
-                TextColumn::make('code')->searchable()
+                TextColumn::make('code')->searchable(),
+                TextColumn::make('discount_amount')->label('Discount')->prefix('$')
             ])
             ->filters([
                 //

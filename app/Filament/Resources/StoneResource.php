@@ -75,7 +75,8 @@ class StoneResource extends Resource
                     ->trueIcon('heroicon-o-check-circle')
                     ->falseIcon('heroicon-o-x-circle')
                     ->label('Popular'),
-                TextColumn::make('status')->badge()
+                TextColumn::make('status')
+                    ->badge()
             ])
             ->filters([
                 SelectFilter::make('category_id')

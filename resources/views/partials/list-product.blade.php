@@ -38,7 +38,8 @@
                     <ul class="mt-2 flex items-center gap-4">
                         <li class="flex items-center gap-2">
 
-                            <p class="text-sm font-medium text-gray-500 dark:text-gray-400">Category: <a href="{{ route('product.category', $stone->category->slug) }}"
+                            <p class="text-sm font-medium text-gray-500 dark:text-gray-400">Category: <a
+                                    href="{{ route('product.category', $stone->category->slug) }}"
                                     class="hover:underline hover:text-sky-700 dark:hover:text-sky-400">{{
                                     $stone->category->name }}</a></p>
                         </li>
@@ -47,19 +48,19 @@
                     <div class="mt-4 flex items-center justify-between gap-4">
                         <p class="text-2xl font-extrabold leading-tight text-gray-900 dark:text-white">${{
                             number_format($stone->price, 0,',','.') }}</p>
-                        <form action="{{ route('front.save_order', $stone->slug) }}" method="POST" >
-                        @csrf
-                        <input type="hidden" name="stone_id" id="stone_id" value="{{ $stone->id }}">
-                        <button type="submit"
-                            class="inline-flex items-center rounded-lg bg-sky-700 px-5 py-2.5 text-sm font-medium text-white hover:bg-sky-800 focus:outline-none focus:ring-4  focus:ring-sky-300 dark:bg-sky-600 dark:hover:bg-sky-700 dark:focus:ring-sky-800">
-                            <svg class="-ms-2 me-2 h-5 w-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-                                width="24" height="24" fill="none" viewBox="0 0 24 24">
-                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                    stroke-width="2"
-                                    d="M4 4h1.5L8 16m0 0h8m-8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm.75-3H7.5M11 7H6.312M17 4v6m-3-3h6" />
-                            </svg>
-                            BUY NOW
-                        </button>
+                        <form action="{{ route('front.save_order', $stone->slug) }}" method="POST">
+                            @csrf
+                            <input type="hidden" name="stone_id" id="stone_id" value="{{ $stone->id }}">
+                            <button type="submit"
+                                class="inline-flex items-center rounded-lg bg-sky-700 px-5 py-2.5 text-sm font-medium text-white hover:bg-sky-800 focus:outline-none focus:ring-4  focus:ring-sky-300 dark:bg-sky-600 dark:hover:bg-sky-700 dark:focus:ring-sky-800">
+                                <svg class="-ms-2 me-2 h-5 w-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                                    width="24" height="24" fill="none" viewBox="0 0 24 24">
+                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                        stroke-width="2"
+                                        d="M4 4h1.5L8 16m0 0h8m-8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm.75-3H7.5M11 7H6.312M17 4v6m-3-3h6" />
+                                </svg>
+                                BUY NOW
+                            </button>
                         </form>
                     </div>
                 </div>

@@ -5,7 +5,7 @@
     <div class="alert alert-danger">
         <ul>
             @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
+            <li>{{ $error }}</li>
             @endforeach
         </ul>
     </div>
@@ -66,36 +66,39 @@
 
 
     <section class="bg-sky-50 dark:bg-gray-900">
-      <div class="py-8 px-4 mx-auto max-w-screen-xl lg:py-10 lg:px-6">
-        <h1 class="text-3xl font-bold mb-8 text-center text-gray-800 dark:text-white">Explore Our Stone Categories</h1>
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-            <!-- Category Card -->
-            @foreach ($data['categories']->take(3) as $category)
-            <div class="bg-white rounded-2xl  shadow hover:shadow-lg transition p-4 dark:bg-gray-800">
-                @if ($category->icon)
-                <img src="{{ Storage::url($category->icon) }}" alt="{{ $category->name }}"
-                class="w-full aspect-square object-cover rounded-xl mb-4">
-                @else
-                <img src="{{ asset('images/no-image-icon.png') }}" alt="{{ $category->name }}"
-                class="w-full aspect-square object-cover rounded-xl mb-4">
-                @endif
-                <div class="flex justify-between">
-                    <h2 class="text-xl font-semibold mb-1 text-gray-900 dark:text-white">{{ $category->name }}</h2>
-                    <a href="{{ route('product.category', $category->slug) }}"
-                        class="text-sky-600 font-medium hover:underline dark:text-sky-400">View Products →</a>
+        <div class="py-8 px-4 mx-auto max-w-screen-xl lg:py-10 lg:px-6">
+            <h1 class="text-3xl font-bold mb-8 text-center text-sky-900 dark:text-white">Explore Our Stone Categories
+            </h1>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Category Card -->
+                @foreach ($data['categories'] as $category)
+                @if ($category->stones->count() != 0)
+                <div class="bg-white rounded-2xl  shadow hover:shadow-lg transition p-4 dark:bg-gray-800">
+                    @if ($category->icon)
+                    <img src="{{ Storage::url($category->icon) }}" alt="{{ $category->name }}"
+                        class="w-full aspect-square object-cover rounded-xl mb-4">
+                    @else
+                    <img src="{{ asset('images/no-image-icon.png') }}" alt="{{ $category->name }}"
+                        class="w-full aspect-square object-cover rounded-xl mb-4">
+                    @endif
+                    <div class="flex justify-between">
+                        <h2 class="text-xl font-semibold mb-1 text-gray-900 dark:text-white">{{ $category->name }}</h2>
+                        <a href="{{ route('product.category', $category->slug) }}"
+                            class="text-sky-600 font-medium hover:underline dark:text-sky-400">View Products →</a>
+                    </div>
                 </div>
-            </div>
-            @endforeach
+                @endif
+                @endforeach
 
+            </div>
         </div>
-      </div>
     </section>
 
     {{-- Blog Section --}}
     <section class="bg-sky-50 dark:bg-gray-900">
         <div class="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-6">
             <div class="mx-auto max-w-screen-sm text-center lg:mb-16 mb-8">
-                <h2 class="mb-4 text-3xl lg:text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white">From
+                <h2 class="mb-4 text-3xl lg:text-4xl tracking-tight font-extrabold text-sky-900 dark:text-white">From
                     Stone to Story</h2>
                 <p class="font-light text-gray-500 sm:text-xl dark:text-gray-400">Insights, inspirations, and stories
                     from the heart of the City of Diamonds.</p>
@@ -118,7 +121,8 @@
                         </span>
 
                     </div>
-                    <h2 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"><a href="#">{{ $article->title }}</a></h2>
+                    <h2 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"><a href="#">{{
+                            $article->title }}</a></h2>
                     <p class="mb-5 font-light text-gray-500 dark:text-gray-400">{{ $article->description }}</p>
                     <div class="flex justify-between items-center">
                         <div class="flex items-center space-x-4">

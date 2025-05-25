@@ -1,20 +1,22 @@
 <!DOCTYPE html>
 <html>
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>PayPal JS SDK Standard Integration</title>
-    <link
-      rel="stylesheet"
-      type="text/css"
-      href="https://www.paypalobjects.com/webstatic/en_US/developer/docs/css/cardfields.css"
-    />
-  </head>
-  <body>
+    <link rel="stylesheet" type="text/css"
+        href="https://www.paypalobjects.com/webstatic/en_US/developer/docs/css/cardfields.css" />
+</head>
+
+<body>
     <div id="paypal-button-container" class="paypal-button-container"></div>
     <p id="result-message"></p>
 
-    <script src="https://www.paypal.com/sdk/js?client-id={{ config('paypal.client_id') }}&buyer-country=US&currency=USD&components=buttons&enable-funding=venmo"></script>
+    <script
+        src="https://www.paypal.com/sdk/js?client-id={{ config('paypal.client_id') }}&buyer-country=US&currency=USD&components=buttons&enable-funding=venmo">
+    </script>
     <script src="{{ asset('js/paypal.js') }}"></script>
-  </body>
+</body>
+
 </html>

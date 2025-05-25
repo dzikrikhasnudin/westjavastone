@@ -22,14 +22,16 @@ class PageController extends Controller
 
     public function contact()
     {
-        $pageExists = Page::where('slug', 'contact-us')->exists();
+        // $pageExists = Page::where('slug', 'contact-us')->exists();
 
-        if ($pageExists) {
-            $page = Page::where('slug', 'contact-us')->first();
-            return view('page.contact', compact('page'));
-        } else {
-            return abort(404);
-        }
+        // if ($pageExists) {
+        //     $page = Page::where('slug', 'contact-us')->first();
+        //     return view('page.contact', compact('page'));
+        // } else {
+        //     return abort(404);
+        // }
+
+        return view('page.contact');
     }
 
     public function blog()

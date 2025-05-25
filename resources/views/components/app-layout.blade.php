@@ -8,15 +8,18 @@
     <title>{{ $title ?? 'West Java Stone' }}</title>
 
     <meta name="title" content="{{ $title ?? 'West Java Stone' }}">
-    <meta name="description" content="{{ $description ??  'West Java Stone is an exporter of premium petrified wood from Garut, Indonesia—The City of Diamonds.'}}">
-    <meta name="keywords" content="petrified wood, fossilized wood, stone furniture, Indonesian stone exporter, West Java Stone, Garut, City of Diamonds">
+    <meta name="description"
+        content="{{ $description ??  'West Java Stone is an exporter of premium petrified wood from Garut, Indonesia—The City of Diamonds.'}}">
+    <meta name="keywords"
+        content="petrified wood, fossilized wood, stone furniture, Indonesian stone exporter, West Java Stone, Garut, City of Diamonds">
 
     <link rel="canonical" href="https://www.westjavastone.com/" />
 
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://www.westjavastone.com/">
     <meta property="og:title" content="{{ $title ?? ' West Java Stone' }}">
-    <meta property="og:description" content="{{ $description ?? 'West Java Stone is an exporter of premium petrified wood from Garut, Indonesia—The City of Diamonds.' }}">
+    <meta property="og:description"
+        content="{{ $description ?? 'West Java Stone is an exporter of premium petrified wood from Garut, Indonesia—The City of Diamonds.' }}">
     @isset($metaimage)
     <meta property="og:image" content="{{ $metaimage }}">
     @endisset

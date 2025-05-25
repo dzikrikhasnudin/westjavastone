@@ -3,8 +3,9 @@
 namespace App\Enums;
 
 use Filament\Support\Contracts\HasLabel;
+use Filament\Support\Contracts\HasColor;
 
-enum StoneStatus: string implements HasLabel
+enum StoneStatus: string implements HasLabel, HasColor
 {
     case Available = 'available';
     case Sold = 'sold';

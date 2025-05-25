@@ -1,7 +1,8 @@
 <x-app-layout>
-        <x-slot:title>Payment - West Java Stone</x-slot:title>
+    <x-slot:title>Payment - West Java Stone</x-slot:title>
     <section class="bg-white py-8 antialiased dark:bg-gray-900 md:py-16">
-        <form action="{{ route('front.payment_confirm') }}" method="POST" enctype="multipart/form-data" class="mx-auto max-w-screen-xl px-4 2xl:px-0">
+        <form action="{{ route('front.payment_confirm') }}" method="POST" enctype="multipart/form-data"
+            class="mx-auto max-w-screen-xl px-4 2xl:px-0">
             @csrf
             <div class="mx-auto">
                 <h2 class="text-xl font-semibold text-gray-900 dark:text-white sm:text-2xl">Payment and Order summary
@@ -88,25 +89,32 @@
                                     <img class="w-24 h-auto" src="{{ asset('assets/images/logos/paypal.png') }}" alt="">
                                 </div>
                                 <div>
-                                    <p class="text-md font-semibold text-gray-900 dark:text-white">westjavastone@gmail.com</p>
+                                    <p class="text-md font-semibold text-gray-900 dark:text-white">
+                                        westjavastone@gmail.com</p>
                                     <p class="text-sky-600">@westjavastone</p>
                                 </div>
                             </div>
                         </div>
                         <div class="relative overflow-x-auto border-gray-200 dark:border-gray-800">
-                            <h4 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">Upload Proof of Transaction</h4>
+                            <h4 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">Upload Proof of
+                                Transaction</h4>
 
-                            <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="file_input">Please upload a clear image of your payment receipt to help us verify your transaction. </label>
-                            <input name="proof" class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" aria-describedby="file_input_help" id="proof" type="file">
-                            <p class="mt-1 text-sm text-gray-500 dark:text-gray-300" id="file_input_help">Accepted file formats: JPG, JPEG, or PNG.</p>
-                              @error('proof')
+                            <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                                for="file_input">Please upload a clear image of your payment receipt to help us verify
+                                your transaction. </label>
+                            <input name="proof"
+                                class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
+                                aria-describedby="file_input_help" id="proof" type="file">
+                            <p class="mt-1 text-sm text-gray-500 dark:text-gray-300" id="file_input_help">Accepted file
+                                formats: JPG, JPEG, or PNG.</p>
+                            @error('proof')
                             <p class="mt-2 text-xs text-red-600 dark:text-red-400">{{ $message}}</p>
                             @enderror
                         </div>
 
                         <div class="flex items-start sm:items-center">
                             <input id="terms-checkbox-2" type="checkbox" value=""
-                                class="h-4 w-4 rounded border-gray-300 bg-gray-100 text-sky-600 focus:ring-2 focus:ring-sky-500 dark:border-gray-600 dark:bg-gray-700 dark:ring-offset-gray-800 dark:focus:ring-sky-600"  />
+                                class="h-4 w-4 rounded border-gray-300 bg-gray-100 text-sky-600 focus:ring-2 focus:ring-sky-500 dark:border-gray-600 dark:bg-gray-700 dark:ring-offset-gray-800 dark:focus:ring-sky-600" />
                             <label for="terms-checkbox-2"
                                 class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300"> I agree with the <a
                                     href="#" title=""
