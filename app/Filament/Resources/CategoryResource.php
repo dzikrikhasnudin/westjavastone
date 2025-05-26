@@ -28,7 +28,7 @@ class CategoryResource extends Resource
         return $form
             ->schema([
                 TextInput::make('name')->required()->maxLength(255),
-                FileUpload::make('icon')->image(),
+                FileUpload::make('icon')->image()->directory('categories'),
             ]);
 
             // ->successRedirectUrl(route('filament.admin.resources.categories.index'))

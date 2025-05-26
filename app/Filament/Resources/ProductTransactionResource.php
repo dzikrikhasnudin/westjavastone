@@ -127,7 +127,8 @@ class ProductTransactionResource extends Resource
 
                             FileUpload::make('proof')
                                 ->image()
-                                ->required(),
+                                ->required()
+                                ->directory('transaction-proof'),
                         ])
                 ])
                     ->columnSpan('full')
@@ -153,7 +154,7 @@ class ProductTransactionResource extends Resource
             ])
             ->filters([
                 SelectFilter::make('stone_id')
-                    ->label('Shoe')
+                    ->label('Stone')
                     ->relationship('stone', 'name'),
             ])
             ->actions([

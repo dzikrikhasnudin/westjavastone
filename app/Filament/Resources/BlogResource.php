@@ -42,7 +42,7 @@ class BlogResource extends Resource
                         RichEditor::make('content')->required()->fileAttachmentsDirectory('attachments'),
                     ]),
 
-                FileUpload::make('thumbnail')->image(),
+                FileUpload::make('thumbnail')->image()->directory('article/thumbnails'),
                 Select::make('status')
                     ->options(PostStatus::class),
             ]);

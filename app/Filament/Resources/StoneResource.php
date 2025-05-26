@@ -41,9 +41,9 @@ class StoneResource extends Resource
                         TextInput::make('price')->required()->numeric()->prefix('USD'),
                         TextInput::make('weight')->required()->numeric()->suffix('Kilograms'),
                         TextInput::make('dimensions'),
-                        FileUpload::make('thumbnail')->image()->required(),
+                        FileUpload::make('thumbnail')->image()->required()->directory('stone/thumbnails'),
                         Repeater::make('photos')->relationship('photos')->schema([
-                            FileUpload::make('photo')->required(),
+                            FileUpload::make('photo')->required()->directory('stone/photos'),
                         ]),
                     ]),
                 Fieldset::make('Additional')

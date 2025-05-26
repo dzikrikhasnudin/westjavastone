@@ -38,7 +38,7 @@ class PageResource extends Resource
                     RichEditor::make('content')->required(),
                 ]),
 
-                FileUpload::make('thumbnail')->image(),
+                FileUpload::make('thumbnail')->image()->directory('page/thumbnail'),
                 Select::make('status')
                 ->options(PostStatus::class),
             ]);
