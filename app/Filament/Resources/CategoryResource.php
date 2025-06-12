@@ -28,10 +28,10 @@ class CategoryResource extends Resource
         return $form
             ->schema([
                 TextInput::make('name')->required()->maxLength(255),
-                FileUpload::make('icon')->image()->directory('categories'),
+                FileUpload::make('icon')->disk('media')->image()->directory('categories'),
             ]);
 
-            // ->successRedirectUrl(route('filament.admin.resources.categories.index'))
+
     }
 
     public static function table(Table $table): Table
@@ -39,18 +39,23 @@ class CategoryResource extends Resource
         return $table
             ->columns([
                 TextColumn::make('name')->searchable(),
-                ImageColumn::make('icon')->circular()->defaultImageUrl(url('/images/no-image-icon.png'))
+                ImageColumn::make('icon')->circular()->defaultImageUrl(url('/images/no-image-icon.png'))->disk('media')
             ])
             ->filters([
-                //
+                Tables\Filters\TrashedFilter::make(),
             ])
             ->defaultSort('created_at', 'desc')
             ->actions([
                 Tables\Actions\EditAction::make(),
+                 Tables\Actions\DeleteAction::make(),
+                 Tables\Actions\ForceDeleteAction::make(),
+                 Tables\Actions\RestoreAction::make(),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
                     Tables\Actions\DeleteBulkAction::make(),
+                    Tables\Actions\ForceDeleteBulkAction::make(),
+                    Tables\Actions\RestoreBulkAction::make(),
                 ]),
             ]);
     }
@@ -69,5 +74,13 @@ class CategoryResource extends Resource
             'create' => Pages\CreateCategory::route('/create'),
             'edit' => Pages\EditCategory::route('/{record}/edit'),
         ];
+    }
+    
+    public static function getEloquentQuery(): Builder
+    {
+        return parent::getEloquentQuery()
+            ->withoutGlobalScopes([
+                SoftDeletingScope::class,
+            ]);
     }
 }

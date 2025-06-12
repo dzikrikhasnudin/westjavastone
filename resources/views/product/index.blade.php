@@ -89,7 +89,7 @@
                     <div class="h-56 w-full">
                         <a href="{{ route('product.details', $stone->slug) }}">
                             <img class="mx-auto w-full h-full rounded object-cover"
-                                src="{{ Storage::url($stone->thumbnail)}}" alt="" />
+                                src="{{ asset('media/' . $stone->thumbnail)}}" alt="" />
                         </a>
                     </div>
                     <div class="pt-6">

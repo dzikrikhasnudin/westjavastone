@@ -32,7 +32,7 @@
                                         <div class="flex items-center gap-4">
                                             <a href="#" class="flex items-center aspect-square w-10 h-10 shrink-0">
                                                 <img class="h-auto w-full max-h-full rounded-sm"
-                                                    src="{{ Storage::url($stone->thumbnail) }}"
+                                                    src="{{ asset('media/' . $stone->thumbnail) }}"
                                                     alt="{{ $stone->name }}" />
 
                                             </a>

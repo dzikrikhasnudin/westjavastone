@@ -41,9 +41,9 @@ class StoneResource extends Resource
                         TextInput::make('price')->required()->numeric()->prefix('USD'),
                         TextInput::make('weight')->required()->numeric()->suffix('Kilograms'),
                         TextInput::make('dimensions'),
-                        FileUpload::make('thumbnail')->image()->required()->directory('stone/thumbnails'),
+                        FileUpload::make('thumbnail')->image()->required()->directory('stone/thumbnails')->disk('media'),
                         Repeater::make('photos')->relationship('photos')->schema([
-                            FileUpload::make('photo')->required()->directory('stone/photos'),
+                            FileUpload::make('photo')->required()->directory('stone/photos')->disk('media'),
                         ]),
                     ]),
                 Fieldset::make('Additional')
@@ -67,7 +67,7 @@ class StoneResource extends Resource
             ->columns([
                 TextColumn::make('name')->searchable(),
                 TextColumn::make('category.name'),
-                ImageColumn::make('thumbnail'),
+                ImageColumn::make('thumbnail')->disk('media'),
                 IconColumn::make('is_popular')
                     ->boolean()
                     ->trueColor('success')

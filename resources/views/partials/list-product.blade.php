@@ -23,7 +23,7 @@
                 <div class="w-full">
                     <a href="{{ route('product.details', $stone->slug) }}">
                         <img class="mx-auto w-full aspect-square rounded object-cover"
-                            src="{{ Storage::url($stone->thumbnail)}}" alt="" />
+                            src="{{ asset('media/' . $stone->thumbnail)}}" alt="" />
                     </a>
                 </div>
                 <div class="pt-6">

@@ -27,6 +27,10 @@ class AppServiceProvider extends ServiceProvider
         $this->app->singleton(OrderRepositoryInterface::class, OrderRepository::class);
 
         $this->app->singleton(PromoCodeRepositoryInterface::class, PromoCodeRepository::class);
+        
+        $this->app->bind('path.public', function () {
+            return base_path('../public_html');
+        });
     }
 
     /**

@@ -37,11 +37,20 @@ return [
             'throw' => false,
             'report' => false,
         ],
+        
+        'media' => [
+            'driver' => 'local',
+            'root' => base_path('../public_html/media'),
+            // 'root' => public_path('media'),
+            'url' => env('APP_URL') . '/media',
+            'visibility' => 'public',
+        ],
 
         'public' => [
             'driver' => 'local',
-            'root' => storage_path('app/public'),
-            'url' => env('APP_URL').'/storage',
+            // 'root' => storage_path('app/public'),
+            'root' => base_path('../public_html/media'),
+            'url' => env('APP_URL').'/',
             'visibility' => 'public',
             'throw' => false,
             'report' => false,

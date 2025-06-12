@@ -128,7 +128,8 @@ class ProductTransactionResource extends Resource
                             FileUpload::make('proof')
                                 ->image()
                                 ->required()
-                                ->directory('transaction-proof'),
+                                ->directory('transaction-proof')
+                                ->disk('media'),
                         ])
                 ])
                     ->columnSpan('full')

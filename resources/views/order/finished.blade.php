@@ -5,7 +5,7 @@
         <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-lg w-full max-w-md text-center p-6 space-y-6">
 
             <!-- Image -->
-            <img src="{{ Storage::url($productTransaction->stone->thumbnail ) }}"
+            <img src="{{ asset('media/' . $productTransaction->stone->thumbnail ) }}"
                 alt="{{ $productTransaction->stone->name }}" class="w-auto h-32 mx-auto rounded-xl shadow-md">
 
             <!-- Title and description -->

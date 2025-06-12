@@ -7,7 +7,9 @@
                 <!-- Category Card -->
                 @foreach ($data['categories']->take(3) as $category)
                 <div class="bg-white rounded-2xl  shadow hover:shadow-lg transition p-4 dark:bg-gray-800">
-                    <img src="{{ Storage::url($category->icon) }}" alt="{{ $category->name }}"
+                    <!--<img src="{{ Storage::url($category->icon) }}" alt="{{ $category->name }}"-->
+                    <!--    class="w-full h-48 object-cover rounded-xl mb-4">-->
+                    <img src="{{ asset('media/' . $category->icon) }}" alt="{{ $category->name }}"
                         class="w-full h-48 object-cover rounded-xl mb-4">
                     <div class="flex justify-between">
                         <h2 class="text-xl font-semibold mb-1 text-gray-900 dark:text-white">{{ $category->name }}</h2>

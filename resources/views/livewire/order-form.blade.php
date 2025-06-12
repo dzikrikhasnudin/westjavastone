@@ -30,7 +30,7 @@
             <div class="min-w-0 flex-1 space-y-8">
                 <div class="rounded-lg shadow p-4">
                     <div class="flex items-center">
-                        <img src="{{ Storage::url($stone->thumbnail) }}" alt="{{ $stone->name }}"
+                        <img src="{{ asset('media/' . $stone->thumbnail) }}" alt="{{ $stone->name }}"
                             class="w-24 h-24 rounded object-cover mr-4">
                         <div>
                             <h2 class="text-lg font-semibold text-gray-800 dark:text-white">{{ $stone->name }}</h2>

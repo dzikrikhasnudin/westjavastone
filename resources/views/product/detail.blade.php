@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot:title>{{ $stone->name . ' - West Java Stone' }}</x-slot:title>
     <x-slot:description>{{ $stone->name }}</x-slot:description>
-    <x-slot:metaimage>{{ Storage::url($stone->thumbnail) }}</x-slot:metaimage>
+    <x-slot:metaimage>{{ asset('media/' . $stone->thumbnail) }}</x-slot:metaimage>
     <div class="max-w-7xl mx-auto px-6 py-10 grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-10">
 
         <!-- Left: Image Gallery -->
@@ -9,7 +9,7 @@
             <div>
                 <img id="main-thumbnail"
                     class="w-full aspect-square object-cover object-center rounded shrink-0 overflow-hidden"
-                    src="{{ Storage::url($stone->thumbnail) }}" alt="" />
+                    src="{{ asset('media/' . $stone->thumbnail) }}" alt="" />
             </div>
             <div class="swiper w-full overflow-hidden mt-4">
                 <div class="swiper-wrapper">
@@ -18,7 +18,7 @@
                         <label
                             class="thumbnail-selector flex flex-col shrink-0 w-20 h-20 p-2 rounded bg-white dark:bg-gray-800 transition-all duration-300 hover:ring-2 hover:ring-sky-400 has-[:checked]:ring-2 has-[:checked]:ring-sky-400">
                             <input type="radio" name="image" class="hidden" checked>
-                            <img src="{{ Storage::url($itemPhoto->photo) }}" class="w-full h-full object-cover"
+                            <img src="{{ asset('media/' . $itemPhoto->photo) }}" class="w-full h-full object-cover"
                                 alt="thumbnail">
                         </label>
                     </div>

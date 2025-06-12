@@ -75,7 +75,7 @@
                 @if ($category->stones->count() != 0)
                 <div class="bg-white rounded-2xl  shadow hover:shadow-lg transition p-4 dark:bg-gray-800">
                     @if ($category->icon)
-                    <img src="{{ Storage::url($category->icon) }}" alt="{{ $category->name }}"
+                    <img src="{{ asset('media/' . $category->icon) }}" alt="{{ $category->name }}"
                         class="w-full aspect-square object-cover rounded-xl mb-4">
                     @else
                     <img src="{{ asset('images/no-image-icon.png') }}" alt="{{ $category->name }}"

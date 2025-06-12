@@ -20,7 +20,7 @@
             </h2>
             <div id="accordion-open-body-1" class="hidden p-6" aria-labelledby="accordion-open-heading-1">
                 <div class="flex items-center space-x-4">
-                    <img src="{{ Storage::url($orderDetails->stone->thumbnail) }}"
+                    <img src="{{ asset('media/' . $orderDetails->stone->thumbnail) }}"
                         alt="{{ $orderDetails->stone->name }}" class="w-20 h-16 object-cover rounded" />
                     <h3 class="font-semibold text-lg text-gray-800 dark:text-white">{{ $orderDetails->stone->name }}
                     </h3>

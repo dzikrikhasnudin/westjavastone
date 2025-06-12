@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot:title>{{ $post->title . ' - West Java Stone' }}</x-slot:title>
     <x-slot:description>{{ $post->description }}</x-slot:description>
-    <x-slot:metaimage>{{ Storage::url($post->thumbnail) }}</x-slot:metaimage>
+    <x-slot:metaimage>{{ asset('media/' . $post->thumbnail) }}</x-slot:metaimage>
     <h2 class="text-2xl font-bold mb-2"></h2>
     <main class="pt-8 pb-16 lg:pt-16 lg:pb-24 antialiased">
         <nav class="flex mx-auto max-w-screen-md px-4 lg:px-0 mb-4" aria-label="Breadcrumb">
@@ -39,7 +39,7 @@
                 </header>
 
                 @if ($post->thumbnail)
-                <img src="{{ Storage::url($post->thumbnail) }}" class="w-full object-cover rounded" alt="">
+                <img src="{{ asset('media/' . $post->thumbnail) }}" class="w-full object-cover rounded" alt="">
                 @endif
 
                 {!! $post->content !!}
